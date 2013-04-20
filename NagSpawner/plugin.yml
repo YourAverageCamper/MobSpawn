@@ -1,0 +1,12 @@
+name: NagSpawner
+main: me.zeus.NagSpawner.NagSpawner
+version: 1.0
+description: A plugin that enables the user to change what a Mobspawner spawns, and also the ability to spawn mobs where the player looks
+commands:
+  mobspawner:
+    aliases: [ms, spawner]
+    description: Change the type of entity spawned from a spawner
+  spawnmob:
+    description: Spawn mobs where player is looking
+  nagspawner:
+    description: Displays help
