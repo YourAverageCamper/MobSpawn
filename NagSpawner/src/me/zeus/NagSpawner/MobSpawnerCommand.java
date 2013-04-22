@@ -28,118 +28,15 @@ public class MobSpawnerCommand implements CommandExecutor {
                     if (b != null && b.getType() != null && b.getType().equals(Material.MOB_SPAWNER))
                     {
                         CreatureSpawner spawner = (CreatureSpawner) b.getState();
-                        switch (args[0])
+                        for (EntityType e : EntityType.values())
                         {
-                        case "cow":
-                            spawner.setSpawnedType(EntityType.COW);
-                            spawner.update();
-                            break;
-                        case "pig":
-                            spawner.setSpawnedType(EntityType.PIG);
-                            spawner.update();
-                            break;
-                        case "chicken":
-                            spawner.setSpawnedType(EntityType.CHICKEN);
-                            spawner.update();
-                            break;
-                        case "sheep":
-                            spawner.setSpawnedType(EntityType.SHEEP);
-                            spawner.update();
-                            break;
-                        case "wolf":
-                            spawner.setSpawnedType(EntityType.WOLF);
-                            spawner.update();
-                            break;
-                        case "arrow":
-                            spawner.setSpawnedType(EntityType.ARROW);
-                            spawner.update();
-                            break;
-                        case "bat":
-                            spawner.setSpawnedType(EntityType.BAT);
-                            spawner.update();
-                            break;
-                        case "blaze":
-                            spawner.setSpawnedType(EntityType.BLAZE);
-                            spawner.update();
-                            break;
-                        case "cavespider":
-                            spawner.setSpawnedType(EntityType.CAVE_SPIDER);
-                            spawner.update();
-                            break;
-                        case "creeper":
-                            spawner.setSpawnedType(EntityType.CREEPER);
-                            spawner.update();
-                            break;
-                        case "endercrystal":
-                            spawner.setSpawnedType(EntityType.ENDER_CRYSTAL);
-                            spawner.update();
-                            break;
-                        case "enderdragon":
-                            spawner.setSpawnedType(EntityType.ENDER_DRAGON);
-                            spawner.update();
-                            break;
-                        case "enderman":
-                            spawner.setSpawnedType(EntityType.ENDERMAN);
-                            spawner.update();
-                            break;
-                        case "ghast":
-                            spawner.setSpawnedType(EntityType.GHAST);
-                            spawner.update();
-                            break;
-                        case "giant":
-                            spawner.setSpawnedType(EntityType.GIANT);
-                            spawner.update();
-                            break;
-                        case "golem":
-                            spawner.setSpawnedType(EntityType.IRON_GOLEM);
-                            spawner.update();
-                            break;
-                        case "snowman":
-                            spawner.setSpawnedType(EntityType.SNOWMAN);
-                            spawner.update();
-                            break;
-                        case "magmacube":
-                            spawner.setSpawnedType(EntityType.MAGMA_CUBE);
-                            spawner.update();
-                            break;
-                        case "slime":
-                            spawner.setSpawnedType(EntityType.SLIME);
-                            spawner.update();
-                            break;
-                        case "ocelot":
-                            spawner.setSpawnedType(EntityType.OCELOT);
-                            spawner.update();
-                            break;
-                        case "pigman":
-                            spawner.setSpawnedType(EntityType.PIG_ZOMBIE);
-                            spawner.update();
-                            break;
-                        case "tnt":
-                            spawner.setSpawnedType(EntityType.PRIMED_TNT);
-                            spawner.update();
-                            break;
-                        case "spider":
-                            spawner.setSpawnedType(EntityType.SPIDER);
-                            spawner.update();
-                            break;
-                        case "squid":
-                            spawner.setSpawnedType(EntityType.SQUID);
-                            spawner.update();
-                            break;
-                        case "villager":
-                            spawner.setSpawnedType(EntityType.VILLAGER);
-                            spawner.update();
-                            break;
-                        case "witch":
-                            spawner.setSpawnedType(EntityType.WITCH);
-                            spawner.update();
-                            break;
-                        case "wither":
-                            spawner.setSpawnedType(EntityType.WITHER);
-                            spawner.update();
-                            break;
+                            if (args[0].equals(e.toString().replace("_", "").toLowerCase()))
+                            {
+                                spawner.setSpawnedType(e);
+                                spawner.update();
+                                sender.sendMessage("§7[§eNagSpawner§7]§a Set spawner type to: " + args[0]);
+                            }
                         }
-                        sender.sendMessage("§7[§eNagSpawner§7]§a Set spawner type to: " + args[0]);
                     }
 
                 } else
